@@ -1,0 +1,30 @@
+<memory>
+  <cell address="0">4095</cell>
+  <cell address="1">4095</cell>
+  <cell address="2">4095</cell>
+  <cell address="3">4095</cell>
+  <cell address="4">4095</cell>
+  <cell address="5">4095</cell>
+  <cell address="6">4095</cell>
+  <cell address="7">4095</cell>
+  <cell address="8">0</cell>
+  <cell address="9">0</cell>
+  <cell address="10">0</cell>
+  <cell address="11">1</cell>
+  <cell address="12">2</cell>
+  <cell address="13">3</cell>
+  <cell address="14">4</cell>
+  <cell address="15">8</cell>
+  <cell address="16">11</cell>
+  <cell address="17">12</cell>
+  <cell address="18">0</cell>
+  <cell address="19">0</cell>
+  <cell address="20">4095</cell>
+  <cell address="21">2047</cell>
+  <cell address="22">1023</cell>
+  <cell address="23">511</cell>
+  <cell address="24">255</cell>
+  <cell address="25">15</cell>
+  <cell address="26">1</cell>
+  <cell address="27">0</cell>
+</memory>
