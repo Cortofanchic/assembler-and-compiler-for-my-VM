@@ -15,7 +15,7 @@ from vm_intepr.decoder import decode_binary
 # Поле адреса B имеет ширину 18 бит => 2^18 = 262144 ячеек памяти
 DATA_MEMORY_SIZE = 1 << 18
 WORD_MASK_32 = 0xFFFFFFFF
-
+WORD_BITS = 32
 
 class VMRuntimeError(Exception):
     """Ошибка выполнения программы в УВМ."""
@@ -47,24 +47,23 @@ class VirtualMachine:
         if cmd.a == OP_LOAD_CONST:
             assert cmd.b is not None
             self.acc = cmd.b
-
         elif cmd.a == OP_READ_MEM:
             self._check_addr(self.acc)
             self.acc = self.data_memory[self.acc]
-
         elif cmd.a == OP_WRITE_MEM:
             assert cmd.b is not None
             self._check_addr(cmd.b)
             self.data_memory[cmd.b] = self.acc
-
         elif cmd.a == OP_SHR:
             assert cmd.b is not None
             self._check_addr(cmd.b)
-            self.acc = (self.acc & WORD_MASK_32) >> self.data_memory[cmd.b]
-
+            shift = self.data_memory[cmd.b]
+            if shift < 0:
+                raise VMRuntimeError(f"Negative shift amount: {shift}")
+            unsigned_acc = self.acc & WORD_MASK_32
+            self.acc = 0 if shift >= WORD_BITS else (unsigned_acc >> shift)
         else:
             raise VMRuntimeError(f"Unsupported opcode A={cmd.a}")
-
         return True
 
     def run(self) -> None:
