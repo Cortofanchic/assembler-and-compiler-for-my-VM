@@ -131,6 +131,7 @@ def main(argv=None) -> int:
         print(f"Error writing {args.output}: {exc}", file=sys.stderr)
         return EXIT_WRITE_ERROR
 
+    print(f"Assembled commands: {len(commands)}")
     if args.test:
         return _print_test_output(commands, binary)
 
