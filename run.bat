@@ -19,9 +19,8 @@ if not defined PY_CMD (
 echo Using Python: %PY_CMD%
 echo.
 
-if not exist build mkdir build
-
 if not "%~1"=="" (
+    if not exist build mkdir build
     echo ^<%~n1^>
     "%PY_CMD%" src/asm.py "%~1" "build\%~n1.bin" --test
     if errorlevel 1 (

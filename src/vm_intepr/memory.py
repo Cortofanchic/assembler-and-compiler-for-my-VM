@@ -10,8 +10,7 @@ from vm_asm.isa import (
     OP_WRITE_MEM,
 )
 from vm_asm.parser import Command
-
-from .decoder import decode_binary
+from vm_intepr.decoder import decode_binary
 
 # Поле адреса B имеет ширину 18 бит => 2^18 = 262144 ячеек памяти
 DATA_MEMORY_SIZE = 1 << 18
